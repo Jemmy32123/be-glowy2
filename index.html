@@ -16,6 +16,7 @@
             background-color: #222;
             color: white;
             padding: 20px;
+            position: relative;
         }
         header img {
             max-width: 120px;
@@ -64,28 +65,44 @@
         a:hover {
             text-decoration: underline;
         }
+
+        /* cart icon */
+        .cart-container {
+            position: absolute;
+            top: 20px;
+            left: 20px; /* عشان الصفحة RTL خليتها يسار */
+        }
+        .cart-icon {
+            font-size: 28px;
+            color: white;
+            text-decoration: none;
+            position: relative;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: red;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
     </style>
-
-
 </head>
 <body>
-    .cart-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 26px;
-    text-decoration: none;
-    color: #ffcc00;
-}
-.cart-icon:hover {
-    color: #fff;
-}
+
     <header>
         <img src="logo.png" alt="لوجو البراند">
         <h1>Welcome to Be Glowy</h1>
         <p>Where you can glow like a queen</p>
-        <a href="cart.html" class="cart-icon">🛒</a>
 
+        <div class="cart-container">
+            <a href="cart.html" class="cart-icon">🛒
+                <span class="cart-count" id="cart-count">0</span>
+            </a>
+        </div>
     </header>
 
     <section class="products">
@@ -111,7 +128,13 @@
         <p>© 2025 Be Glowy - جميع الحقوق محفوظة</p>
     </footer>
 
+    <script>
+        // تحديث العداد عند فتح الصفحة
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+        updateCartCount();
+    </script>
 </body>
 </html>
-
-
