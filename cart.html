@@ -11,14 +11,28 @@
     th, td { padding: 12px; border: 1px solid #ddd; text-align: center; }
     th { background: #222; color: #fff; }
     .summary { margin-top: 20px; font-size: 18px; }
-    .checkout-btn { margin-top: 20px; padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .checkout-btn, .back-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .checkout-btn { background: #28a745; }
     .checkout-btn:hover { background: #218838; }
+    .back-btn { background: #007bff; text-decoration: none; display: inline-block; }
+    .back-btn:hover { background: #0056b3; }
     .remove-btn { background: red; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 5px; }
   </style>
 </head>
 <body>
 
   <h1>🛒 عربة التسوق</h1>
+
+  <!-- زر رجوع للتسوق -->
+  <a href="index.html" class="back-btn">⬅ رجوع للتسوق</a>
 
   <table>
     <thead>
@@ -50,16 +64,14 @@
       let subtotal = 0;
 
       cart.forEach((item, index) => {
-        let price = parseFloat(item.price) || 0;
-        let quantity = parseInt(item.quantity) || 0;
-        let total = price * quantity;
+        let total = item.price * item.quantity;
         subtotal += total;
 
         cartTable.innerHTML += `
           <tr>
             <td>${item.name}</td>
-            <td>${price} جنيه</td>
-            <td>${quantity}</td>
+            <td>${item.price} جنيه</td>
+            <td>${item.quantity}</td>
             <td>${total} جنيه</td>
             <td><button class="remove-btn" onclick="removeItem(${index})">❌</button></td>
           </tr>
@@ -85,12 +97,10 @@
 
       let message = "طلب جديد:\n";
       cart.forEach(item => {
-        let price = parseFloat(item.price) || 0;
-        let quantity = parseInt(item.quantity) || 0;
-        message += `${item.name} × ${quantity} = ${price * quantity} جنيه\n`;
+        message += `${item.name} × ${item.quantity} = ${item.price * item.quantity} جنيه\n`;
       });
 
-      let subtotal = cart.reduce((sum, i) => sum + (parseFloat(i.price) || 0) * (parseInt(i.quantity) || 0), 0);
+      let subtotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
       let total = subtotal + 20;
       message += `\nالإجمالي: ${total} جنيه (شامل الشحن)`;
 
