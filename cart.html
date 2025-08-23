@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="cart.js"></script>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <nav class="navbar">
+      <a href="home.html" class="logo">MyStore</a>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html" class="active">Cart 🛒</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Cart Section -->
+  <main class="cart-page">
+    <h1>Your Shopping Cart</h1>
+    <section class="cart-container">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Items will be dynamically inserted here -->
+        </tbody>
+      </table>
+
+      <!-- Cart Summary -->
+      <div class="cart-summary">
+        <h3>Order Summary</h3>
+        <p>Subtotal: <span id="subtotal">$0.00</span></p>
+        <p>Tax (10%): <span id="tax">$0.00</span></p>
+        <h2>Total: <span id="total">$0.00</span></h2>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MyStore. All rights reserved.</p>
+  </footer>
+</body>
+</html>
