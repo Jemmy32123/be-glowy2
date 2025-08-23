@@ -1,209 +1,57 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be Glowy</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            background-color: #222;
-            color: white;
-            padding: 20px;
-            position: relative;
-        }
-        header img {
-            max-width: 120px;
-            margin-bottom: 10px;
-        }
-        h1 {
-            margin: 0;
-            font-size: 26px;
-        }
-        p {
-            font-size: 18px;
-            color: #555;
-        }
-        section {
-            padding: 20px;
-        }
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .product {
-            margin: 15px;
-            padding: 10px;
-            background: #fff;
-            border-radius: 10px;
-            width: 200px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-        .product img {
-            width: 100%;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-        .product img:hover {
-            transform: scale(1.05);
-        }
-        .product h3 {
-            margin: 10px 0 5px;
-            font-size: 18px;
-            color: #333;
-        }
-        .product button {
-            padding: 6px 12px;
-            background: #ffcc00;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .product button:hover {
-            background: #e6b800;
-        }
-        footer {
-            background-color: #222;
-            color: white;
-            padding: 15px;
-            margin-top: 20px;
-        }
-        a {
-            color: #ffcc00;
-            text-decoration: none;
-            margin: 0 8px;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* cart icon */
-        .cart-container {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-        .cart-icon {
-            font-size: 28px;
-            color: white;
-            text-decoration: none;
-            position: relative;
-        }
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -12px;
-            background: red;
-            color: white;
-            font-size: 14px;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 50%;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <img src="logo.png" alt="لوجو البراند">
-        <h1>Welcome to Be Glowy</h1>
-        <p>Where you can glow like a queen</p>
-
-        <div class="cart-container">
-            <a href="cart.html" class="cart-icon">🛒
-                <span class="cart-count" id="cart-count">0</span>
-            </a>
-        </div>
-    </header>
-
-    <section class="products">
-        <div class="product">
+<section class="products">
+    <div class="product">
+        <a href="product1.html">
             <img src="product1.jpg" alt="سيرم زيتي">
             <h3>سيرم زيتي</h3>
-            <button onclick="addToCart('سيرم زيتي', 80)">أضف للسلة</button>
-        </div>
+        </a>
+        <button onclick="addToCart('سيرم زيتي', 80)">أضف للسلة</button>
+    </div>
 
-        <div class="product">
+    <div class="product">
+        <a href="product2.html">
             <img src="product2.jpg" alt="ديودرانت">
             <h3>ديودرانت</h3>
-            <button onclick="addToCart('ديودرانت', 60)">أضف للسلة</button>
-        </div>
+        </a>
+        <button onclick="addToCart('ديودرانت', 60)">أضف للسلة</button>
+    </div>
 
-        <div class="product">
+    <div class="product">
+        <a href="product3.html">
             <img src="product3.jpg" alt="شامبو المنتوس">
             <h3>شامبو المنتوس</h3>
-            <button onclick="addToCart('شامبو المنتوس', 120)">أضف للسلة</button>
-        </div>
+        </a>
+        <button onclick="addToCart('شامبو المنتوس', 120)">أضف للسلة</button>
+    </div>
 
-        <div class="product">
+    <div class="product">
+        <a href="product4.html">
             <img src="product4.jpg" alt="بلسم للشعر">
             <h3>بلسم للشعر</h3>
-            <button onclick="addToCart('بلسم للشعر', 100)">أضف للسلة</button>
-        </div>
+        </a>
+        <button onclick="addToCart('بلسم للشعر', 100)">أضف للسلة</button>
+    </div>
 
-        <div class="product">
+    <div class="product">
+        <a href="product5.html">
             <img src="product5.jpg" alt="زيت للجسم">
             <h3>زيت للجسم</h3>
-            <button onclick="addToCart('زيت للجسم', 90)">أضف للسلة</button>
-        </div>
+        </a>
+        <button onclick="addToCart('زيت للجسم', 90)">أضف للسلة</button>
+    </div>
 
-        <div class="product">
+    <div class="product">
+        <a href="product6.html">
             <img src="product6.jpg" alt="سكراب طبيعي">
             <h3>سكراب طبيعي</h3>
-            <button onclick="addToCart('سكراب طبيعي', 70)">أضف للسلة</button>
-        </div>
+        </a>
+        <button onclick="addToCart('سكراب طبيعي', 70)">أضف للسلة</button>
+    </div>
 
-        <div class="product">
+    <div class="product">
+        <a href="product7.html">
             <img src="product7.jpg" alt="كريم ترطيب">
             <h3>كريم ترطيب</h3>
-            <button onclick="addToCart('كريم ترطيب', 75)">أضف للسلة</button>
-        </div>
-    </section>
-
-    <section>
-        <h2>تواصل معنا</h2>
-        <p>
-            <a href="https://wa.me/201234567890">واتساب</a> |
-            <a href="https://instagram.com/brand">إنستجرام</a> |
-            <a href="https://facebook.com/brand">فيسبوك</a>
-        </p>
-    </section>
-
-    <footer>
-        <p>© 2025 Be Glowy - جميع الحقوق محفوظة</p>
-    </footer>
-
-    <script>
-        function addToCart(name, price) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let existing = cart.find(item => item.name === name);
-
-            if (existing) {
-                existing.quantity += 1;
-            } else {
-                cart.push({ name: name, price: price, quantity: 1 });
-            }
-
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount();
-        }
-
-        function updateCartCount() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let count = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cart-count').textContent = count;
-        }
-
-        document.addEventListener("DOMContentLoaded", updateCartCount);
-    </script>
-</body>
-</html>
+        </a>
+        <button onclick="addToCart('كريم ترطيب', 75)">أضف للسلة</button>
+    </div>
+</section>
