@@ -1,60 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart</title>
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="cart.js"></script>
+  <title>سلة التسوق - Be Glowy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #222;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .cart-page {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background: #f4f4f4;
+    }
+    .cart-summary {
+      text-align: right;
+      padding: 15px;
+      background: #f4f4f4;
+      border-radius: 8px;
+    }
+    .cart-summary h3 {
+      margin-top: 0;
+    }
+    .checkout-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 12px 25px;
+      background: #222;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .checkout-btn:hover {
+      background: #444;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Header / Navigation -->
+
   <header>
-    <nav class="navbar">
-      <a href="home.html" class="logo">MyStore</a>
-      <ul class="nav-links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="cart.html" class="active">Cart 🛒</a></li>
-      </ul>
-    </nav>
+    <h1>🛒 سلة التسوق</h1>
   </header>
 
-  <!-- Cart Section -->
   <main class="cart-page">
-    <h1>Your Shopping Cart</h1>
-    <section class="cart-container">
-      <table class="cart-table">
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody id="cart-items">
-          <!-- Items will be dynamically inserted here -->
-        </tbody>
-      </table>
+    <h1>مشترياتك</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>المنتج</th>
+          <th>السعر</th>
+          <th>الكمية</th>
+          <th>الإجمالي</th>
+          <th>إزالة</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- المنتجات ستظهر هنا -->
+      </tbody>
+    </table>
 
-      <!-- Cart Summary -->
-      <div class="cart-summary">
-        <h3>Order Summary</h3>
-        <p>Subtotal: <span id="subtotal">$0.00</span></p>
-        <p>Tax (10%): <span id="tax">$0.00</span></p>
-        <h2>Total: <span id="total">$0.00</span></h2>
-        <button class="checkout-btn">Proceed to Checkout</button>
-      </div>
-    </section>
+    <div class="cart-summary">
+      <h3>ملخص الطلب</h3>
+      <p>المجموع: <span id="subtotal">0 جنيه</span></p>
+      <p>الشحن: 20 جنيه</p>
+      <h2>الإجمالي: <span id="total">0 جنيه</span></h2>
+      <button class="checkout-btn">إتمام الطلب</button>
+    </div>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 MyStore. All rights reserved.</p>
+    <p>© 2025 Be Glowy - جميع الحقوق محفوظة</p>
   </footer>
+
 </body>
 </html>
