@@ -38,17 +38,37 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        .products a {
-            text-decoration: none;
-        }
-        .products img {
+        .product {
+            margin: 15px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 10px;
             width: 200px;
-            margin: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .product img {
+            width: 100%;
             border-radius: 10px;
             transition: transform 0.3s;
         }
-        .products img:hover {
+        .product img:hover {
             transform: scale(1.05);
+        }
+        .product h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            color: #333;
+        }
+        .product button {
+            padding: 6px 12px;
+            background: #ffcc00;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .product button:hover {
+            background: #e6b800;
         }
         footer {
             background-color: #222;
@@ -70,7 +90,7 @@
         .cart-container {
             position: absolute;
             top: 20px;
-            left: 20px; /* عشان الصفحة RTL خليتها يسار */
+            left: 20px;
         }
         .cart-icon {
             font-size: 28px;
@@ -106,13 +126,47 @@
     </header>
 
     <section class="products">
-        <a href="product1.html"><img src="product1.jpg" alt="سيرم زيتي"></a>
-        <a href="product2.html"><img src="product2.jpg" alt="ديودرانت"></a>
-        <a href="product3.html"><img src="product3.jpg" alt="شامبو المنتوس"></a>
-        <a href="product4.html"><img src="product4.jpg" alt="بلسم للشعر"></a>
-        <a href="product5.html"><img src="product5.jpg" alt="زيت للجسم"></a>
-        <a href="product6.html"><img src="product6.jpg" alt="سكراب طبيعي"></a>
-        <a href="product7.html"><img src="product7.jpg" alt="كريم ترطيب"></a>
+        <div class="product">
+            <img src="product1.jpg" alt="سيرم زيتي">
+            <h3>سيرم زيتي</h3>
+            <button onclick="addToCart('سيرم زيتي', 80)">أضف للسلة</button>
+        </div>
+
+        <div class="product">
+            <img src="product2.jpg" alt="ديودرانت">
+            <h3>ديودرانت</h3>
+            <button onclick="addToCart('ديودرانت', 60)">أضف للسلة</button>
+        </div>
+
+        <div class="product">
+            <img src="product3.jpg" alt="شامبو المنتوس">
+            <h3>شامبو المنتوس</h3>
+            <button onclick="addToCart('شامبو المنتوس', 120)">أضف للسلة</button>
+        </div>
+
+        <div class="product">
+            <img src="product4.jpg" alt="بلسم للشعر">
+            <h3>بلسم للشعر</h3>
+            <button onclick="addToCart('بلسم للشعر', 100)">أضف للسلة</button>
+        </div>
+
+        <div class="product">
+            <img src="product5.jpg" alt="زيت للجسم">
+            <h3>زيت للجسم</h3>
+            <button onclick="addToCart('زيت للجسم', 90)">أضف للسلة</button>
+        </div>
+
+        <div class="product">
+            <img src="product6.jpg" alt="سكراب طبيعي">
+            <h3>سكراب طبيعي</h3>
+            <button onclick="addToCart('سكراب طبيعي', 70)">أضف للسلة</button>
+        </div>
+
+        <div class="product">
+            <img src="product7.jpg" alt="كريم ترطيب">
+            <h3>كريم ترطيب</h3>
+            <button onclick="addToCart('كريم ترطيب', 75)">أضف للسلة</button>
+        </div>
     </section>
 
     <section>
@@ -129,12 +183,27 @@
     </footer>
 
     <script>
-        // تحديث العداد عند فتح الصفحة
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let existing = cart.find(item => item.name === name);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ name: name, price: price, quantity: 1 });
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+        }
+
         function updateCartCount() {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            document.getElementById('cart-count').textContent = cart.length;
+            let count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = count;
         }
-        updateCartCount();
+
+        document.addEventListener("DOMContentLoaded", updateCartCount);
     </script>
 </body>
 </html>
