@@ -43,7 +43,7 @@
             font-weight: bold;
             margin-top: 15px;
         }
-        a.back-btn {
+        a.back-btn, button.cart-btn {
             display: inline-block;
             margin-top: 20px;
             text-decoration: none;
@@ -51,8 +51,10 @@
             background: #222;
             padding: 10px 20px;
             border-radius: 5px;
+            border: none;
+            cursor: pointer;
         }
-        a.back-btn:hover { background: #444; }
+        a.back-btn:hover, button.cart-btn:hover { background: #444; }
     </style>
 </head>
 <body>
@@ -77,9 +79,23 @@
                 السيرم ١٢٠ملل.
             </p>
             <p class="price">السعر: 130 جنيه</p>
+
+            <!-- ✅ Add to Cart button -->
+            <button class="cart-btn" onclick="addToCart('سيرم زيتي', 130)">🛒 أضف إلى العربة</button>
+
+            <br>
             <a class="back-btn" href="index.html">🔙 رجوع للمنتجات</a>
         </div>
     </div>
+
+    <script>
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({name: name, price: price});
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + " تمت إضافته إلى العربة!");
+        }
+    </script>
 
 </body>
 </html>
