@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الهير بالم</title>
+    <title>الهير بالم - Be Glowy</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,16 +44,20 @@
             border-radius: 8px;
             font-size: 18px;
         }
-        a.back-link {
+        button.cart-btn, a.back-link {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 15px;
+            margin-right: 5px;
             text-decoration: none;
             background: #4a2c2a;
             color: white;
             padding: 8px 15px;
             border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
         }
-        a.back-link:hover {
+        button.cart-btn:hover, a.back-link:hover {
             background: #2f1a19;
         }
     </style>
@@ -68,12 +72,25 @@
             <li>زيت جوجوبا</li>
             <li>فيتامين E</li>
         </ul>
+
         <div class="price">
-            متوفر بحجمين:<br>
-            الصغير: 50<br>
-            الوسط: 85
+            متوفر بحجمين:
+            <br> الصغير: 50 جنيه 
+            <button class="cart-btn" onclick="addToCart('الهير بالم - صغير', 50)">🛒 أضف</button>
+            <br> الوسط: 85 جنيه 
+            <button class="cart-btn" onclick="addToCart('الهير بالم - وسط', 85)">🛒 أضف</button>
         </div>
-        <a href="index.html" class="back-link">رجوع للصفحة الرئيسية</a>
+
+        <a href="index.html" class="back-link">🔙 رجوع للصفحة الرئيسية</a>
     </div>
+
+    <script>
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({name: name, price: price});
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(name + " تمت إضافته إلى العربة!");
+        }
+    </script>
 </body>
 </html>
